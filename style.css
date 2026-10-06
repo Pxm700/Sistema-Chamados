@@ -3,7 +3,7 @@
   color-scheme:dark;
   --bg:#111; --card:#1a1a1a; --campo:#121212; --borda:#2c2c2c;
   --txt:#f4f4f4; --mudo:#9b9b9b;
-  --am:#d9b300; --la:#f08a1c; --ve:#e5484d;
+  --am:#d9b300; --la:#f08a1c; --ve:#e5484d; --neon:#ff1f4b;
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px);
   padding-bottom:env(safe-area-inset-bottom,0px);
@@ -29,15 +29,24 @@ input:focus,select:focus{outline:2px solid #f4f4f4;outline-offset:1px}
 .legenda .nota{color:var(--mudo)}
 .bola{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}
 .bola.amarelo{background:var(--am)}.bola.laranja{background:var(--la)}.bola.vermelho{background:var(--ve)}
-.filtros{display:flex;gap:10px;margin-bottom:18px}
-.filtros select{flex:1}.filtros input{flex:1}
+.bola.critico{background:var(--neon);box-shadow:0 0 8px var(--neon)}
+.filtros{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px}
+.filtros #filtro-numero,.filtros #filtro-loja{grid-column:1 / -1}
 .card{background:var(--card);border:1px solid var(--borda);border-left:5px solid var(--borda);border-radius:14px;padding:14px 16px;margin-bottom:10px}
 .card.amarelo{border-left-color:var(--am);background:rgba(217,179,0,.10)}
 .card.laranja{border-left-color:var(--la);background:rgba(240,138,28,.12)}
 .card.vermelho{border-left-color:var(--ve);background:rgba(229,72,77,.14)}
+.card.critico{border-left-color:var(--neon);background:rgba(255,31,75,.20);animation:pulsar 1.4s ease-in-out infinite}
+@keyframes pulsar{
+  0%,100%{box-shadow:0 0 0 0 rgba(255,31,75,0),0 0 6px rgba(255,31,75,.35);border-color:rgba(255,31,75,.35)}
+  50%{box-shadow:0 0 0 2px rgba(255,31,75,.35),0 0 22px rgba(255,31,75,.75);border-color:rgba(255,31,75,.9)}
+}
+@media (prefers-reduced-motion:reduce){.card.critico{animation:none;box-shadow:0 0 12px rgba(255,31,75,.6)}}
 .topo{display:flex;justify-content:space-between;gap:10px;font-weight:700;font-size:16px;margin-bottom:6px}
 .topo .loja{font-weight:500;color:#cfcfcf;text-align:right;font-size:14px}
 .info{font-size:13px;color:var(--mudo);margin-bottom:12px}
+.acoes{flex-wrap:wrap}
+.acoes select{min-width:150px}
 .acoes{display:flex;gap:8px}
 .acoes select{flex:1;padding:9px 12px;font-size:14px}
 .btn-x{background:transparent;color:#cfcfcf;border:1px solid var(--borda);border-radius:12px;padding:0 14px;font:inherit;font-size:13px;cursor:pointer}

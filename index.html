@@ -22,7 +22,10 @@
         <input type="text" id="numero" placeholder="Número do chamado. Ex: 123456" autocomplete="off">
       </label>
       <label>Loja
-        <input type="text" id="loja" placeholder="Ex: Loja 014 - Moema" autocomplete="off">
+        <select id="loja"></select>
+      </label>
+      <label>Equipe
+        <select id="equipe"></select>
       </label>
       <label>Data de inclusão
         <input type="date" id="data">
@@ -40,11 +43,14 @@
       <span><i class="bola amarelo"></i>Mais de 3 dias</span>
       <span><i class="bola laranja"></i>Mais de 7 dias</span>
       <span><i class="bola vermelho"></i>Mais de 10 dias</span>
+      <span><i class="bola critico"></i>Mais de 30 dias</span>
       <span class="nota"></span>
     </div>
     <div class="filtros">
+      <input type="text" id="filtro-numero" placeholder="Buscar pelo número do chamado..." autocomplete="off">
       <select id="filtro-status"></select>
-      <input type="text" id="filtro-loja" placeholder="Filtrar por loja...">
+      <select id="filtro-equipe"></select>
+      <select id="filtro-loja"></select>
     </div>
     <div id="lista"></div>
   </section>
