@@ -7,20 +7,19 @@ const STATUS = [
   "Chamado concluído"
 ];
 const LOJAS = [
-  "01 - Itaquera", "02 - Oratório", "03 - Guaianases", "04 - São Miguel",
-  "05 - Itaim", "06 - Suzano", "07 - Mogi", "08 - São Bernardo",
-  "09 - Taboão", "10 - Itaquaquecetuba", "11 - Penha", "12 - Guarulhos",
-  "13 - Cidade Dutra", "14 - Osasco"
+  "01", "02 ", "03", "04",
+  "05", "06", "07", "08 ",
+  "09", "10", "11", "12",
+  "13", "14"
 ];
-const EQUIPES = ["Wellitel", "Contec", "CSS Tech", "Ouzze", "Scanprint"];
+const EQUIPES = ["Equipe A", "Equipe B", "Equipe C", "Equipe D", "Equipe E"];
 const SEM_EQUIPE = "Sem equipe";
 const CONCLUIDO = "Chamado concluído";
-const CHAVE = "chamados_v2"; // mesma chave de antes: os chamados já cadastrados continuam aparecendo
+const CHAVE = "chamados_v2"; 
 
 function carregar() {
   try {
     const lista = JSON.parse(localStorage.getItem(CHAVE)) || [];
-    // chamados antigos não têm equipe
     lista.forEach(c => { if (!c.equipe) c.equipe = SEM_EQUIPE; });
     return lista;
   } catch (e) { return []; }
